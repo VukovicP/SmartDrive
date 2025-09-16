@@ -155,7 +155,6 @@
                         $selectPrice = $_POST["Price"];
                         $selectType = $_POST["Type"];
                         $selectTransmission = $_POST["Transmission"];
-                        // echo $selectType;
 
                         if ($selectPrice == "htol") {
                             $sql = "
@@ -227,7 +226,6 @@
                                     )
                                 )
                             ";
-                            // echo $sql;
                         }
 
                         
@@ -299,8 +297,6 @@
                                             </div>
 
                                             <div>
-                                                <!-- OVO TREBA DOVRSITI -->
-                                                <!-- Obratiti paznju na action -->
                                                 <form action="../ProtectionPackage/protection.php" method="POST" class="next-section">
                                                 <p><strong id="price_<?php echo $vehicleId; ?>">
                                                         <?php echo $row['price'] ?>€ / day
@@ -308,7 +304,6 @@
                                                 
                                                 <input type="hidden" id="selectedPrice_<?php echo $vehicleId; ?>" name="selectedPrice" value="<?php echo $row['price']; ?>">
 
-                                                <!-- hidden input za vehicle_id -->
                                                 <input type="hidden" name="vehicle_id" value="<?php echo $vehicleId; ?>">
 
                                                 <button class="confirm-btn" type="submit">Next</button>
