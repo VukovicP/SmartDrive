@@ -155,7 +155,6 @@
                         $selectPrice = $_POST["Price"];
                         $selectType = $_POST["Type"];
                         $selectTransmission = $_POST["Transmission"];
-                        // echo $selectType;
 
                         if ($selectPrice == "htol") {
                             $sql = "
@@ -198,7 +197,6 @@
                                     )
                                 ) AND type LIKE '" . $selectType . "'
                             ";
-                            
                         }
                         else if ($selectTransmission != "all") {
                             $sql = "
@@ -227,7 +225,6 @@
                                     )
                                 )
                             ";
-                            // echo $sql;
                         }
 
                         
@@ -235,8 +232,7 @@
 
                             while ($row = $rezultat->fetch_assoc()) {
                                 $imgName = str_replace(" ", "", $row['name']);
-                                $vehicleId = $row['vehicle_id'];   
-
+                                $vehicleId = $row['vehicle_id'];                       
                             ?>
                                 <div class="vehicleCard" onclick="openVehicleDetails(<?php echo $vehicleId; ?>)" style="background-image: url(images/<?php echo $imgName?>.png);">
 
@@ -301,18 +297,17 @@
                                             <div>
                                                 <!-- OVO TREBA DOVRSITI -->
                                                 <!-- Obratiti paznju na action -->
-                                                <form action="../ProtectionPackage/protection.php" method="POST" class="next-section">
-                                                <p><strong id="price_<?php echo $vehicleId; ?>">
-                                                        <?php echo $row['price'] ?>€ / day
-                                                </strong></p>
-                                                
-                                                <input type="hidden" id="selectedPrice_<?php echo $vehicleId; ?>" name="selectedPrice" value="<?php echo $row['price']; ?>">
+                                                <form action="../ProtectionPackage/protection.php" method="post" class="next-section">
+                                                    <p><strong id="price_<?php echo $vehicleId; ?>">
+                                                            <?php echo $row['price'] ?> / day
+                                                    </strong></p>
+                                                    <input type="hidden" id="selectedPrice_<?php echo $vehicleId; ?>" name="selectedPrice" value="<?php echo $row['price']; ?>">
 
                                                 <!-- hidden input za vehicle_id -->
                                                 <input type="hidden" name="vehicle_id" value="<?php echo $vehicleId; ?>">
-
-                                                <button class="confirm-btn" type="submit">Next</button>
-                                            </form>
+                                                    
+                                                    <button class="confirm-btn" type="submit">Next</button>
+                                                </form>
                                             </div>
                                         </div>
                                         <button id="closeDetails" class="close-btn" onclick="(closeVehicleDetails(<?php echo $vehicleId; ?>))">X</button>

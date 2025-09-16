@@ -29,6 +29,7 @@ function updatePrice(vehicleId, basePrice, unlimitedPrice) {
 
     if (unlimitedOption.checked) {
         priceElement.innerHTML = total + "€ / day";
+        console.log("Total price: " + total);
     }
     else {
         priceElement.innerHTML = basePrice + "€ / day";
