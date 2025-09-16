@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 10%, rgba(168,168,168,1) 100%);
+}
+
+/* Preloader animation */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(169,227,238);
+    background: radial-gradient(circle, rgba(169,227,238,1) 0%, rgba(18,103,148,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 1s ease; /* Efekat nestajanja */
+}
+
+/* Stil za ime u preloader-u */
+.preloader-name {
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #DDF2FD;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmak između linija i imena */
+}
+
+/* Linije oko imena */
+.preloader-name .line {
+    display: inline-block;
+    width: 0; /* Početna širina */
+    height: 3.5px;
+    background-color: #DDF2FD;
+    transition: width 1.5s ease-in-out; /* Animacija širine linije */
+}
+
+/* Aktivira animaciju linija */
+.animate .line {
+    width: 100px; /* Postavlja širinu linije tokom animacije */
+}
+
+/* Preloader postaje nevidljiv */
+#preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+#login {
+    width: 100%;;
+}
+
+.register > a{
+    text-decoration: none;
+}
+
+
+/* HEADER */
+#header {
+    background-image: url(images/bmw-m2.3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 83vh;
+    z-index: 1000;  /* Obrati paznju */
+}
+
+/* Promjena boje teksta u navbaru */
+#header header .nav-link, 
+a.link-body-emphasis, 
+.btn {
+    color: white; 
+}
+
+/* Animacija pri prelaskom misa preko navbar itema */
+.navbar .nav-link,
+.navbar .btn,
+.navbar .navbar-brand {
+    transition: color 0.3s ease;
+}
+
+/* Promjena boje teksta glavnog slogana */ 
+.strong-header {
+    color: white;
+}
+
+.strong-header > h1, .strong-header > p {
+    text-shadow: 5px 5px 10px rgb(59, 59, 59);
+}
+
+.logo-nav {
+    margin-bottom: 100px;
+}
+
+/* USER MENU */
+.dropdown-menu {
+    left: 0;
+    right: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* KALENDAR */
+/* Input polja i select */
+.form-control, 
+.form-select {
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease-in-out;
+  background-color: #fff;
+  appearance: none; /* sklanja default strelicu */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%230d6efd' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+
+.form-control:focus, 
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.25);
+  outline: none;
+}
+
+.form-select:hover {
+  border-color: #0d6efd;
+}
+
+button#checkAvailability {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  border-radius: 12px;
+  border: none;
+  background: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button#checkAvailability:hover {
+  background: #0b5ed7;
+}
+
+
+
+#typewriter {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+  #header {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .logo-nav {
+    margin-bottom: 40px;
+  }
+
+  .strong-header h1 {
+    font-size: 3rem;
+  }
+
+  #typewriter {
+    font-size: 1rem;
+  }
+
+  input, select, #checkAvailability {
+    width: 100%;
+  }
+}
+
+
+/* JUMBOTRONS */
+.jumbotron-1 {
+    height: 600px;
+    background-image: url(images/jumbotron-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.jumbotron-content > h1, .jumbotron-content > p {
+    text-shadow: 5px 5px 10px rgb(59, 59, 59);
+}
+
+.jumbotron-2 {
+    height: 600px;
+    background-image: url(images/jumbotron-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jumbo-div {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.jumbo-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* CAROUSEL */
+
+#carouselExampleCaptions {
+    max-height: 600px; 
+    overflow: hidden; 
+}
+
+.carousel-item img {
+    height: 600px; 
+    object-fit: cover; 
+}
+
+
+/* POPUP LOGIN */
+.popup {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Crna providna pozadina */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Popup sadržaj */
+.popup-content {
+    background: white;
+    padding: 20px;
+    width: 600px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+#forma-login {
+    align-items: start;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup.show .popup-content {
+    transform: translate(-50, -50) scale(1);
+}
+
+/* Dugme za zatvaranje */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Stilizacija input polja */
+.input {
+    width: 100%;
+    margin: 5px 0 15px 0;
+}
+
+

@@ -1,0 +1,360 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.black-background-cover {
+    background-color: rgb(68, 68, 68);
+}
+
+
+/* HEADER */
+.nav-link, .btn {
+    color: white;
+}
+
+#date {
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border: 0;
+    padding: 15px 20px;
+    border-radius: 15px;
+    /* width: 200px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#date p {
+    margin: 0;
+}
+
+.filter-section {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.filters {
+    background-color: #dfdfdf;
+    border: 0;
+    border-radius: 15px;
+    padding: 8px;
+}
+
+/* USER MENU */
+.user-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    min-width: 150px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background: #f1f1f1;
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+
+/* VEHICLES */
+.vehicles-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.vehicleCard {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    position: relative;
+}
+
+.vehicleCard.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vehicleCard {
+    width: 400px; 
+    height: 450px; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.vehicleCard:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Gornji levi ugao */
+.vehicleInfo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+/* Donji levi ugao */
+.vehiclePrice {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    /* background: rgba(0, 0, 0, 0.5);  */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+/* EXTENDED VEHICLE INFO */
+/* Prošireni prikaz (detalji vozila) */
+.vehicle-details {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    animation: fadeIn 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.vehicle-details.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.details-content {
+    display: flex;
+    background-color: #464646;
+    padding: 0px;
+    border-radius: 15px;
+    width: 70%;
+    height: 70%;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative;   
+}
+
+.details-left {
+    flex: 1;
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+}
+
+.details-left .details-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.details-left .details-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 2;
+    padding: 20px;
+}
+
+.vehicle-specs {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    z-index: 2;
+    left: 25px;
+    bottom: 20px;
+    gap: 30px;
+}
+
+/* Desna polovina sa dodatnim informacijama */
+.details-right {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.bookingOption {
+    background-color: #5e5e5e;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border: 1px solid rgb(126, 126, 126);
+    border-radius: 15px;
+}
+
+.bookingOption p {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 20px;
+    display: inline-block; /* Ensures the label stays inline with the radio button */
+    vertical-align: middle;
+    margin: 0;
+    margin-left: 20px;
+}   
+
+.milege {
+    gap: 0;
+}
+
+.checkMilage {
+    background-color: #5e5e5e;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border: 1px solid rgb(126, 126, 126);
+}
+
+.first {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.second {
+    border-radius: 0px 0px 15px 15px;
+}
+
+.checkMilage input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    accent-color: #2376e2;
+    border: none;
+}
+
+.checkMilage label {
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block; /* Ensures the label stays inline with the radio button */
+    vertical-align: middle; /* Ensures vertical alignment */
+}
+
+.checkMilage input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: #e7f3ff; /* Highlight the label when the radio button is checked */
+}
+
+.checkMilage input[type="radio"]:focus + label {
+    outline: 2px solid #007bff;
+}
+
+.checkMilage input[type="radio"]:disabled + label {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+
+.next-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.next-section p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0; 
+}
+
+/* Stil za dugmad */
+.confirm-btn {
+    background-color: #45abff;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 50%;
+    margin: 0;
+}
+
+.confirm-btn:hover {
+    background-color: #17456b;
+    transition: 0.6s;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: rgb(255, 255, 255);
+    transform: scale(1.2);
+}
+
+/* FOOTER */
+footer {
+    margin-bottom: 0;
+}
+
+#copyr {
+    color: white;
+}
