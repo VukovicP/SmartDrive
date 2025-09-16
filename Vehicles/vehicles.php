@@ -297,13 +297,26 @@
                                             <div>
                                                 <!-- OVO TREBA DOVRSITI -->
                                                 <!-- Obratiti paznju na action -->
-                                                <form action="../ProtectionPackage/protection.php" method="post" class="next-section">
-                                                    <p><strong id="price_<?php echo $vehicleId; ?>">
-                                                            <?php echo $row['price'] ?> / day
-                                                    </strong></p>
-                                                    
-                                                    <button class="confirm-btn" type="submit">Next</button>
-                                                </form>
+                                                <form action="../ProtectionPackage/protection.php" method="POST" class="next-section">
+                                                <p><strong id="price_<?php echo $vehicleId; ?>">
+                                                        <?php echo $row['price'] ?>€ / day
+                                                </strong></p>
+                                                
+                                                <input type="hidden" id="selectedPrice_<?php echo $vehicleId; ?>" name="selectedPrice" value="<?php echo $row['price']; ?>">
+
+                                                <!-- hidden input za vehicle_id -->
+                                                <input type="hidden" name="vehicle_id" value="<?php echo $vehicleId; ?>">
+
+                                                <button class="confirm-btn" type="submit">Next</button>
+                                            </form>
+
+                                            <script>
+                                                document.querySelectorAll('input[name="mileage_<?php echo $vehicleId; ?>"]').forEach(radio => {
+                                                    radio.addEventListener("change", function () {
+                                                        document.getElementById("selectedPrice_<?php echo $vehicleId; ?>").value = this.value;
+                                                    });
+                                                });
+                                            </script>
                                             </div>
                                         </div>
                                         <button id="closeDetails" class="close-btn" onclick="(closeVehicleDetails(<?php echo $vehicleId; ?>))">X</button>
